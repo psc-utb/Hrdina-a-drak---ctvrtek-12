@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hrdina a drak - ctvrtek 12", "Hrdina a drak - ctvrtek 12\Hrdina a drak - ctvrtek 12.csproj", "{7E3D5B63-76F8-44A6-BC99-F857E500D61B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E3D5B63-76F8-44A6-BC99-F857E500D61B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E3D5B63-76F8-44A6-BC99-F857E500D61B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E3D5B63-76F8-44A6-BC99-F857E500D61B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E3D5B63-76F8-44A6-BC99-F857E500D61B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B7EBE038-E489-494D-B210-9537BDB91D50}
+	EndGlobalSection
+EndGlobal
