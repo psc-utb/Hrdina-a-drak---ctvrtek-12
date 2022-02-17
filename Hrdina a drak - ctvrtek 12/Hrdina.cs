@@ -14,6 +14,9 @@ namespace Hrdina_a_drak___ctvrtek_12
         public double PoskozeniMax { get; set; }
         public double ZbrojMax { get; set; }
 
+        public bool Utekl { get; set; }
+
+
         public Hrdina(string jmeno, double zdravi, double zdraviMax, double poskozeniMax, double zbrojMax)
         {
             Jmeno = jmeno;
@@ -21,18 +24,30 @@ namespace Hrdina_a_drak___ctvrtek_12
             ZdraviMax = zdraviMax;
             PoskozeniMax = poskozeniMax;
             ZbrojMax = zbrojMax;
+            Utekl = false;
         }
 
+        /// <summary>
+        /// utok hrdiny na draka - nahodne se generuje hodnota utoku a od ní se odecita obrana oponenta
+        /// </summary>
+        /// <param name="oponent">oponent hrdiny - drak</param>
+        /// <returns>hodnota utoku</returns>
+        /// <exception cref="Exception">drak útočí, i když už útočit nemůže!</exception>
         public double Utok(Drak oponent)
         {
-            double hodnotaUtoku = 0;
+            if (MuzeBojovat())
+            {
+                double hodnotaUtoku = 0;
 
-            Random rnd = new Random();
-            hodnotaUtoku = rnd.NextDouble() * PoskozeniMax;
-            hodnotaUtoku -= oponent.Obrana();
-            oponent.SnizZdravi(hodnotaUtoku);
+                Random rnd = new Random();
+                hodnotaUtoku = rnd.NextDouble() * PoskozeniMax;
+                hodnotaUtoku -= oponent.Obrana();
+                oponent.SnizZdravi(hodnotaUtoku);
 
-            return hodnotaUtoku;
+                return hodnotaUtoku;
+            }
+            else
+                throw new Exception("Drak útočí a přitom už nemůže bojovat!");
         }
 
         public double Obrana()
@@ -52,9 +67,14 @@ namespace Hrdina_a_drak___ctvrtek_12
             }
         }
 
+        public bool MuzeBojovat()
+        {
+            return JeZivy() && Utekl == false;
+        }
+
         public bool JeZivy()
         {
-            if(Zdravi > 0)
+            if (Zdravi > 0)
             {
                 return true;
             }
