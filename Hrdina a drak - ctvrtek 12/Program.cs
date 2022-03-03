@@ -6,10 +6,17 @@ namespace Hrdina_a_drak___ctvrtek_12
     {
         static void Main(string[] args)
         {
-            Hrdina hrdina = new Hrdina("Geralt", 100, 100, 10, 10);
+            Hrdina hrdina = new Hrdina("Geralt", 100, 100, 10, 10, null);
             Drak drak = new Drak("Alduin", 100, 100, 11, 10);
+            Vlk vlk = new Vlk("Wolf", 50, 50, 5, 5 );
+
+            /*
             Arena arena = new Arena(hrdina, drak);
-            arena.Boj();
+            arena.Boj();*/
+
+            Postava[] postavy = new Postava[] { hrdina, drak, vlk };
+            ArenaProPostavy arenaProPostavy = new ArenaProPostavy(postavy);
+            arenaProPostavy.Boj();
         }
     }
 }
