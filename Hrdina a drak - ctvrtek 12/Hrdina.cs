@@ -16,6 +16,19 @@ namespace Hrdina_a_drak___ctvrtek_12
             Mec = mec;
         }
 
+        public override double Utok(Postava oponent)
+        {
+            if (Mec != null)
+            {
+                return Utok(oponent, Mec.PoskozeniMax);
+            }
+            else
+            {
+                //return Utok(oponent, PoskozeniMax);
+                return base.Utok(oponent);
+            }
+        }
+
         public Hrdina Clone()
         {
             //Hrdina klon = new Hrdina(Jmeno, Zdravi, ZdraviMax, PoskozeniMax, ZbrojMax, Mec.Clone());
