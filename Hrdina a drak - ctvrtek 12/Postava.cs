@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hrdina_a_drak___ctvrtek_12
 {
-    public class Postava : Object
+    public abstract class Postava : Object, IComparable<Postava>
     {
         public string Jmeno { get; set; }
         public double Zdravi { get; set; }
@@ -67,12 +67,23 @@ namespace Hrdina_a_drak___ctvrtek_12
         {
             foreach(var postava in postavy)
             {
-                if (postava.MuzeBojovat() && postava != this)
+                if (postava.MuzeBojovat() && postava != this && KontrolaOponenta(postava))
                 {
                     return postava;
                 }
             }
             return null;
+        }
+
+        public abstract bool KontrolaOponenta(Postava oponent);
+
+        public bool MuzeSiVybratOponenta(Postava[] postavy)
+        {
+            Postava oponent = VyberOponenta(postavy);
+            if (oponent != null)
+                return true;
+            else
+                return false;
         }
 
         public void SnizZdravi(double hodnota)
@@ -98,6 +109,24 @@ namespace Hrdina_a_drak___ctvrtek_12
             {
                 return false;
             }
+        }
+
+        public int CompareTo(Postava other)
+        {
+            if (other == null)
+                return 1;
+
+            return this.HodnoceniPostavy().CompareTo(other.HodnoceniPostavy());
+        }
+
+        public virtual double HodnoceniPostavy()
+        {
+            return 0.3 * Zdravi + 0.4 * PoskozeniMax + 0.3 * ZbrojMax;
+        }
+
+        public override string ToString()
+        {
+            return $"{Jmeno}, Zdravi: {Zdravi}, ZdraviMax: {ZdraviMax}, PoskozeniMax: {PoskozeniMax}, ZbrojMax: {ZbrojMax}, Utekl: {Utekl}, Hodnoceni postavy: {HodnoceniPostavy()}";
         }
     }
 }

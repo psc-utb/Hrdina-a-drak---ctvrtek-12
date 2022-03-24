@@ -12,5 +12,10 @@ namespace Hrdina_a_drak___ctvrtek_12
         {
 
         }
+
+        public override bool KontrolaOponenta(Postava oponent)
+        {
+            return oponent is not Vlk;
+        }
     }
 }
