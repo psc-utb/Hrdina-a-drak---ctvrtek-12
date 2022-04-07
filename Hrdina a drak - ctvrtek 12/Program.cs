@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Hrdina_a_drak___ctvrtek_12
 {
@@ -24,10 +25,15 @@ namespace Hrdina_a_drak___ctvrtek_12
             Arena arena = new Arena(hrdina, drak);
             arena.Boj();*/
 
-            Postava[] postavy = new Postava[] { hrdina, drak, drak2, vlk };
+            List<Postava> postavy = new List<Postava> { hrdina, drak, drak2, vlk };
 
             //Array.Sort(postavy);
             //Array.Reverse(postavy);
+            //postavy.Sort();
+            //postavy.Reverse();
+            postavy.Add(new Hrdina("hrdina 5", 50, 50, 5, 5, new Mec(5)));
+            //postavy.Remove(drak2);
+            //postavy.RemoveAt(1);
             foreach(var postava in postavy)
             {
                 Console.WriteLine(postava);
