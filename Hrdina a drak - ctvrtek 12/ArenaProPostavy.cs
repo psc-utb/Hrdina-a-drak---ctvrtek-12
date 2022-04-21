@@ -100,5 +100,17 @@ namespace Hrdina_a_drak___ctvrtek_12
             Console.WriteLine($"Postava: {utocnik.Jmeno} si vybrala nového oponenta: {oponent.Jmeno}");
         }
 
+        public void StatistikyPostav()
+        {
+            double prumerneHodnoceniPostav = Postavy.Average(postava => postava.HodnoceniPostavy());
+            Console.WriteLine($"Průměrné hodnocení postav je: {prumerneHodnoceniPostav}");
+
+            List<Postava> draci = Postavy.FindAll(postava => postava is Drak);
+            draci.ForEach(postava => Console.WriteLine(postava.ToString()));
+            //draci.ForEach(Console.WriteLine);
+
+            Console.WriteLine(String.Empty);
+        }
+
     }
 }

@@ -41,6 +41,7 @@ namespace Hrdina_a_drak___ctvrtek_12
             Console.WriteLine(String.Empty);
 
             ArenaProPostavy arenaProPostavy = new ArenaProPostavy(postavy);
+            arenaProPostavy.StatistikyPostav();
             arenaProPostavy.Boj();
         }
     }
